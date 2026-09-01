@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JavaScript Events</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			margin: 40PX;	
+		     }
+
+		.box {
+			width: 500px;
+			padding: 25px;
+			border: 1px solid #ccc;
+			border-radius: 10px;
+		      }
+
+		.event-box {
+			padding: 15px;
+			margin: 15px 0;
+			border: 1px solid #ddd;
+		      }
+
+		button {
+			padding: 10px 20px;
+			cursor: pointer;
+		       }
+
+		input, select {
+			padding: 8px;
+			width: 250px;
+			}
+
+			#clickBox {
+				padding: 15px;
+				margin-top: 10px;
+			}
+
+			#keyOutput {
+				margin-top: 10px;
+				font-weight: bold;
+			}
+		</style>
+	</head>
+<body>
+<div class="box">
+	<h1>JavaScript Events</h1>
+	<!-- onclick -->
+	<div class="event-box">
+		<h3> 1. onclick </h3>
+		<button onclick="changeButton(this)">
+			Click Me
+		</button>
+	</div>
+
+	<!-- ondblclick-->
+	<div class="event-box">
+		<h3> 2. ondblclick</h3>
+		<div id="clickBox"
+			ondblclick="changeBox()">
+			Double-click this box
+		</div>
+	</div>
+
+		<!-- onchange -->
+		<div class="event-box">
+			<h3> 3. onchange</h3>
+			<label>Select Department:</label><br><br> 	
+			<select onchange="showDepartment(this)"> 	
+				<option value="">Select</option>
+				<option value="HR">HR</option>
+				<option value="Finance">Finance</option>
+				<option value="IT">IT</option>
+				<option value="Marketing">Marketing</option>
+			</select>
+
+			<p id="department"></p>
+		</div>
+
+		<!-- onkeydown -->
+		<div class="event-box">
+			<h3> 4. onkeydown</h3>
+			<input type="text" placeholder="Press any key" onkeydown="showKeyDown (event)">  
+			<p id="keydown0utput"></p>
+		</div>
+	</div>
+<script>
+	// onclick
+	function changeButton(button) {
+		button.innerHTML ="Clicked!" ;
+		button.style.backgroundColor = "lightgreen";
+	}
+
+	//ondblclick
+	function changeBox() {
+		var box = document.getElementById("clickBox");
+		box.innerHTML = "You double-clicked me!";
+		box.style.backgroundColor = "lightblue";
+	}
+
+	// onchange
+	function showDepartment(select) {
+	var department = document.getElementById("department"); 
+	department.innerHTML = "Selected Department: " + select.value;
+	}
+
+	// onkeydown
+	function showKeyDown(event) { var output = document.getElementById("keydownOutput"); 
+	output.innerHTML = "Key pressed: " + event.key;
+	} 
+</script></body></html>
