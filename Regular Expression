@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> JavaScript RegExp</title>
+</head>
+<body>
+	<h2>Regular Expression Example</h2>
+	<button onclick="checkText()">Check Text</buton>
+	<p id="result"></p>
+
+	<script>
+		function checkText() {
+		// Check whether "JavaScript" exists in the text
+		let pattern = /JavaScript/;
+		if (pattern.test(text)) {
+			document.getElementById("result").innerHTML = "JavaScript is found in the text.";
+		} else {
+			document.getElementById("result").innerHTML = "JavaScript is not found.";
+		}
+	</script>
+</body>
+</html>
